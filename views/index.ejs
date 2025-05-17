@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-[#121212]">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>SSTATS</title>
+    <meta
+      name="description"
+      content="Explore your Spotify stats in a fun way"
+    />
+
+    <!-- Mobile Theme -->
+    <meta name="theme-color" content="#121212" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <meta property="og:title" content="SSTATS" />
+    <meta
+      property="og:description"
+      content="Explore your Spotify stats in a fun way"
+    />
+    <meta
+      property="og:image"
+      content="https://s.widget-club.com/samples/XE3qOIj1FfVAEIQPfCbL8s6JJQz1/o8tGRQ2lXdvfN4DV2mrV/CC9DC0A1-5F71-4455-8074-C7A1750136FE.jpg?q=70"
+    />
+    <meta property="og:url" content="https://127.0.0.1:3000" />
+    <meta
+      property="og:site_name"
+      content="SSTATS - Exploring Your Spotify Stats in a Fun Way"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <link rel="canonical" href="https://127.0.0.1:3000" />
+
+    <link rel="preload" as="style" href="asset.css" />
+    <link rel="modulepreload" href="asset1.js" />
+    <link rel="stylesheet" href="asset.css" />
+    <script type="module" href="asset1.js"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Victor+Mono&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://yt3.googleusercontent.com/pwo0XaP2hjT_D8r9cqMgYft1Xt5Xy8ODcUTUkc5wkoByqTEvkRUUGqpQLDvg7SNtsG4JpFmkrGE=s176-c-k-c0x00ffffff-no-rj-mo"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="https://yt3.googleusercontent.com/pwo0XaP2hjT_D8r9cqMgYft1Xt5Xy8ODcUTUkc5wkoByqTEvkRUUGqpQLDvg7SNtsG4JpFmkrGE=s176-c-k-c0x00ffffff-no-rj-mo"
+    />
+    <meta
+      name="ahrefs-site-verification"
+      content="f9805fd529e993ad2b1929b09f27c0b69fbda9fad04acead603f2847527f3b52"
+    />
+  </head>
+
+  <body class="relative bg-[#121212]">
+    <div
+      x-data="spotifyLogin"
+      class="relative min-h-screen bg-[#121212] text-white"
+    >
+      <!-- Main Header -->
+      <div
+        class="fixed top-0 left-0 z-50 w-full border-b bg-black/95 backdrop-blur-sm border-zinc-800"
+      >
+        <div class="max-w-5xl px-4 mx-auto sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-20">
+            <div class="flex items-center">
+              <a href="/" class="flex items-center gap-2">
+                <div class="flex items-center gap-2">
+                  <div class="flex items-end h-8 gap-1">
+                    <div class="w-3 bg-[#1DB954] rounded-sm h-[60%]"></div>
+                    <div class="w-3 bg-[#1DB954] rounded-sm h-full"></div>
+                    <div class="w-3 bg-[#1DB954] rounded-sm h-[80%]"></div>
+                  </div>
+                  <span class="font-black text-white ml-2 hidden md:inline"
+                    >SSTATS</span
+                  >
+                </div>
+
+                <style>
+                  @keyframes bar-1 {
+                    0%,
+                    100% {
+                      height: 60%;
+                    }
+
+                    25% {
+                      height: 100%;
+                    }
+
+                    50% {
+                      height: 40%;
+                    }
+
+                    75% {
+                      height: 80%;
+                    }
+                  }
+
+                  @keyframes bar-2 {
+                    0%,
+                    100% {
+                      height: 40%;
+                    }
+
+                    25% {
+                      height: 80%;
+                    }
+
+                    50% {
+                      height: 100%;
+                    }
+
+                    75% {
+                      height: 60%;
+                    }
+                  }
+
+                  @keyframes bar-3 {
+                    0%,
+                    100% {
+                      height: 80%;
+                    }
+
+                    25% {
+                      height: 40%;
+                    }
+
+                    50% {
+                      height: 60%;
+                    }
+
+                    75% {
+                      height: 100%;
+                    }
+                  }
+
+                  .animate-bar-1 {
+                    animation: bar-1 1.5s ease-in-out infinite;
+                  }
+
+                  .animate-bar-2 {
+                    animation: bar-2 1.5s ease-in-out infinite;
+                  }
+
+                  .animate-bar-3 {
+                    animation: bar-3 1.5s ease-in-out infinite;
+                  }
+                </style>
+              </a>
+            </div>
+            <div class="flex items-center">
+              <a
+                href="https://127.0.0.1:3000/login"
+                class="hidden md:inline-flex items-center px-4 py-2 text-sm font-semibold text-black transition-colors duration-200 bg-[#1DB954] rounded-full hover:bg-[#1ed760]"
+              >
+                <svg
+                  class="w-5 h-5 mr-2"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"
+                  />
+                </svg>
+                Login with Spotify
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Remove old mobile menu that was below header -->
+      </div>
+
+      <!-- Background Layer with reduced opacity -->
+      <div class="fixed inset-0 overflow-hidden opacity-50">
+        <!-- Dark gradient overlay -->
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212] to-transparent"
+        ></div>
+        <!-- Random gradient lights -->
+        <template x-for="i in 5" :key="i">
+          <div
+            class="absolute w-[600px] h-[600px] rounded-full light-gradient"
+            :style="`left: ${Math.random() * 100}%;top: ${Math.random() * 100}%;animation: fadeInOut ${5 + Math.random() * 5}s infinite;animation-delay: ${Math.random() * 5}s;`"
+          ></div>
+        </template>
+        <!-- Floating Music Notes -->
+        <div class="absolute w-full h-full">
+          <template x-for="i in 8" :key="i">
+            <div
+              class="absolute animate-float"
+              :style="`left: ${Math.random() * 100}%; animation-delay: ${Math.random() * 5}s; animation-duration: ${5 + Math.random() * 5}s`"
+            >
+              <svg
+                class="w-8 h-8 text-white/10"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"
+                />
+              </svg>
+            </div>
+          </template>
+        </div>
+      </div>
+
+      <!-- Content Layer -->
+      <div class="relative flex flex-col min-h-screen">
+        <!-- Hero Section -->
+        <section class="relative w-full py-16 md:py-24 lg:py-32">
+          <div class="container max-w-5xl px-4 mx-auto">
+            <div
+              class="flex flex-col items-center md:flex-row md:items-start md:justify-between md:gap-12"
+            >
+              <!-- Left content - Text and CTA -->
+              <div
+                class="order-2 w-full text-center md:order-1 md:w-1/2 md:text-left lg:pr-8"
+              >
+                <h1
+                  class="mb-6 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl"
+                >
+                  <span class="text-white">SSTATS</span>
+                  <span
+                    class="block mt-2 text-3xl md:text-4xl lg:text-5xl text-[#1DB954]/90"
+                    >Discover Your Listening Journey</span
+                  >
+                </h1>
+                <p class="mb-8 text-lg text-gray-300 md:text-xl">
+                  Unlock insights into your music taste. See your top artists,
+                  most streamed tracks, and explore your unique listening
+                  habits.
+                </p>
+
+                <!-- CTA Button -->
+                <div class="relative inline-block group">
+                  <div
+                    class="absolute -inset-1 bg-gradient-to-r from-[#1DB954] to-[#1ed760] rounded-full blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"
+                  ></div>
+                  <a
+                    href="https://127.0.0.1:3000/login"
+                    class="relative flex items-center px-8 py-4 text-lg font-bold text-white bg-[#1DB954] rounded-full md:inline-flex hover:bg-[#1ed760] transition-all duration-200 transform hover:scale-105"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-6 h-6 mr-2"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"
+                      />
+                    </svg>
+                    Connect with Spotify
+                  </a>
+                </div>
+                <p class="mt-4 text-sm text-gray-400">
+                  By connecting, you agree to the
+                  <a
+                    href="http://localhost:3000/terms"
+                    class="text-green-600 hover:text-green-700"
+                    >Terms of Service</a
+                  >
+                  and
+                  <a
+                    href="http://localhost:3000/privacy"
+                    class="text-green-600 hover:text-green-700"
+                    >Privacy Policy</a
+                  >
+                </p>
+
+                <div class="flex justify-center w-full my-2"></div>
+              </div>
+
+              <!-- Right content - Image -->
+              <div class="order-1 w-full mb-8 md:order-2 md:w-1/2 md:mb-0">
+                <div
+                  class="overflow-hidden rounded-3xl shadow-2xl shadow-[#1DB954]/20"
+                >
+                  <div class="relative aspect-[4/3]">
+                    <img
+                      src="https://s.yimg.com/ny/api/res/1.2/glj.i1_2U1WlnOS8GNg29A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU-/https://s.yimg.com/os/creatr-uploaded-images/2024-07/241232f0-4e99-11ef-b35f-3e8af3246f66"
+                      alt="SSTATS Dashboard"
+                      class="object-cover w-full h-full transition-transform duration-700 transform group-hover:scale-105"
+                    />
+                    <div
+                      class="absolute inset-0 bg-gradient-to-br from-[#121212]/40 to-transparent"
+                    ></div>
+
+                    <!-- Visual elements on top of image -->
+                    <div
+                      class="absolute flex space-x-1 bottom-4 right-4 opacity-80"
+                    >
+                      <div
+                        class="w-2 h-8 bg-[#1DB954] animate-pulse-slow rounded-full"
+                      ></div>
+                      <div
+                        class="w-2 h-6 bg-[#1DB954] animate-pulse-slower rounded-full"
+                      ></div>
+                      <div
+                        class="w-2 h-10 bg-[#1DB954] animate-pulse-slow rounded-full"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Features Grid -->
+        <section class="py-16 bg-black/30 backdrop-blur-sm">
+          <div class="container max-w-5xl px-4 mx-auto">
+            <h2 class="mb-12 text-3xl font-bold text-center">
+              Explore Your Music Data
+            </h2>
+
+            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+              <div
+                class="relative p-6 overflow-hidden transition-all border bg-gray-800/50 rounded-xl group backdrop-blur-sm hover:bg-gray-800/80 border-gray-700/50"
+              >
+                <!-- Green gradient effect -->
+                <div
+                  class="absolute bottom-0 right-0 w-32 h-32 bg-[#1DB954]/10 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                ></div>
+                <div class="relative">
+                  <div class="text-[#1DB954] mb-4">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-8 h-8"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"
+                      />
+                    </svg>
+                  </div>
+                  <h3 class="mb-2 text-xl font-bold text-white">Top Tracks</h3>
+                  <p class="text-gray-400">
+                    Discover your most played songs across different time
+                    periods.
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="relative p-6 overflow-hidden transition-all border bg-gray-800/50 rounded-xl group backdrop-blur-sm hover:bg-gray-800/80 border-gray-700/50"
+              >
+                <div
+                  class="absolute bottom-0 right-0 w-32 h-32 bg-[#1DB954]/10 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                ></div>
+                <div class="relative">
+                  <div class="text-[#1DB954] mb-4">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-8 h-8"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                      />
+                    </svg>
+                  </div>
+                  <h3 class="mb-2 text-xl font-bold text-white">Top Artists</h3>
+                  <p class="text-gray-400">
+                    See which artists dominate your listening habits.
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="relative p-6 overflow-hidden transition-all border bg-gray-800/50 rounded-xl group backdrop-blur-sm hover:bg-gray-800/80 border-gray-700/50"
+              >
+                <div
+                  class="absolute bottom-0 right-0 w-32 h-32 bg-[#1DB954]/10 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                ></div>
+                <div class="relative">
+                  <div class="text-[#1DB954] mb-4">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-8 h-8"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7zm3-8h-2v-2c0-.55-.45-1-1-1s-1 .45-1 1v2H9c-.55 0-1 .45-1 1s.45 1 1 1h2v2c0 .55.45 1 1 1s1-.45 1-1v-2h2c.55 0 1-.45 1-1s-.45-1-1-1z"
+                      />
+                    </svg>
+                  </div>
+                  <h3 class="mb-2 text-xl font-bold text-white">
+                    Genre Analysis
+                  </h3>
+                  <p class="text-gray-400">
+                    Explore the diverse genres that shape your music taste.
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="relative p-6 overflow-hidden transition-all border bg-gray-800/50 rounded-xl group backdrop-blur-sm hover:bg-gray-800/80 border-gray-700/50"
+              >
+                <div
+                  class="absolute bottom-0 right-0 w-32 h-32 bg-[#1DB954]/10 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                ></div>
+                <div class="relative">
+                  <div class="text-[#1DB954] mb-4">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-8 h-8"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 14.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 7.5 12 7.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5zm0-5.5c-.55 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"
+                      />
+                    </svg>
+                  </div>
+                  <h3 class="mb-2 text-xl font-bold text-white">
+                    Recently Played
+                  </h3>
+                  <p class="text-gray-400">
+                    Track your listening history and see what you've been
+                    playing lately.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Time Periods -->
+        <section class="py-16">
+          <div class="container max-w-5xl px-4 mx-auto text-center">
+            <p class="mb-6 text-xl text-gray-300">
+              View your Spotify stats for
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 text-sm">
+              <div
+                class="px-4 py-2 transition-colors rounded-full bg-white/5 backdrop-blur-sm hover:bg-white/10"
+              >
+                Last 4 Weeks
+              </div>
+              <div
+                class="px-4 py-2 transition-colors rounded-full bg-white/5 backdrop-blur-sm hover:bg-white/10"
+              >
+                Last 6 Months
+              </div>
+              <div
+                class="px-4 py-2 transition-colors rounded-full bg-white/5 backdrop-blur-sm hover:bg-white/10"
+              >
+                Last 12 Months
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Featured Cards Section -->
+        <section class="py-16 bg-gradient-to-b from-transparent to-black/30">
+          <div class="container max-w-5xl px-4 mx-auto">
+            <h2 class="mb-10 text-3xl font-bold text-center">
+              Discover Your Music Journey
+            </h2>
+          </div>
+        </section>
+      </div>
+    </div>
+    <!-- Footer -->
+    <div class="mt-16">
+      <footer
+        class="relative z-10 px-4 py-10 mt-20 border-t border-gray-800 bg-gradient-to-r from-gray-900 to-black"
+        role="contentinfo"
+      >
+        <div class="max-w-5xl mx-auto">
+          <!-- Divider -->
+          <div class="my-8 border-t border-gray-800"></div>
+
+          <!-- Spotify Attribution and Copyright -->
+          <div
+            class="flex flex-col items-center justify-between gap-4 md:flex-row"
+          >
+            <div class="flex items-center gap-2 text-gray-400">
+              <span>Powered by</span>
+              <a
+                href="https://developer.spotify.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-white hover:text-[#1ed760] transition-colors flex items-center gap-2 group"
+              >
+                <svg
+                  class="w-5 h-5 group-hover:animate-pulse"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"
+                  />
+                </svg>
+                <span class="group-hover:underline">Spotify API</span>
+              </a>
+            </div>
+
+            <p class="text-sm text-gray-500">
+              © 2025 SSTATS. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <style>
+      [x-cloak] {
+        display: none !important;
+      }
+
+      /* Mobile overscroll color */
+      html,
+      body {
+        background-color: #121212;
+        height: 100%;
+      }
+
+      /* iOS Safari specific styles */
+      @supports (-webkit-touch-callout: none) {
+        .min-h-screen {
+          min-height: -webkit-fill-available;
+        }
+
+        /* iOS status bar space */
+        body {
+          padding-top: env(safe-area-inset-top);
+          padding-bottom: env(safe-area-inset-bottom);
+        }
+      }
+
+      /* Hide scrollbar but keep functionality */
+      ::-webkit-scrollbar {
+        display: none;
+      }
+
+      * {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      /* Prevent text selection */
+      * {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
+      }
+
+      /* Allow text selection in specific elements */
+      input,
+      textarea {
+        -webkit-user-select: text;
+        user-select: text;
+      }
+    </style>
+  </body>
+</html>
