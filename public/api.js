@@ -137,10 +137,26 @@ async function fetchArtists() {
   }
 }
 
+async function fetchArtist(artistUrl) {
+  let response = await fetch(`${artistUrl}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  if (!response.ok) {
+    console.error(`Error: ${response.status} ${response.statusText}`);
+    return 0;
+  } else {
+    data = await response.json();
+    console.log(data);
+    return data;
+  }
+}
+
 async function getArtists() {
   let i = 1;
-  data = await fetchArtists();
-  items = data["items"];
+  let data = await fetchArtists();
+  let items = data["items"];
   items.forEach((item) => {
     let artist = item["name"];
     let score = item["popularity"];
@@ -152,6 +168,29 @@ async function getArtists() {
     i++;
   });
 }
+
+async function analysis() {
+  let i = 0;
+  let data = await fetchArtists("medium_term");
+  let genre = {}; 
+  items = data["items"];
+  items.forEach(async (item) => {
+    if (!isObjectEmpty(item["genres"])) {
+      let genres = item["genres"]; 
+      //todo
+      i++;
+    }
+
+  });
+}
+
+async function createChart(){
+
+}
+async function showChart(){
+
+}
+
 function logout() {
   localStorage.removeItem("access_token");
   localStorage.removeItem("refresh_token");
@@ -206,5 +245,11 @@ window.onload = function () {
 
     getToken();
     getTracks(range);
+  }
+
+  if (path.startsWith("/genre")){
+      analysis();
+      createChart();
+      showChart();
   }
 };
