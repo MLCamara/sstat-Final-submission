@@ -137,22 +137,6 @@ async function fetchArtists() {
   }
 }
 
-async function fetchArtist(artistUrl) {
-  let response = await fetch(`${artistUrl}`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
-  if (!response.ok) {
-    console.error(`Error: ${response.status} ${response.statusText}`);
-    return 0;
-  } else {
-    data = await response.json();
-    console.log(data);
-    return data;
-  }
-}
-
 async function getArtists() {
   let i = 1;
   let data = await fetchArtists();
@@ -171,25 +155,21 @@ async function getArtists() {
 
 async function analysis() {
   let i = 0;
-  let data = await fetchArtists("medium_term");
-  let genre = {}; 
+  let data = await fetchArtists();
+  let genre = {};
   items = data["items"];
   items.forEach(async (item) => {
-    if (!isObjectEmpty(item["genres"])) {
-      let genres = item["genres"]; 
+    if (Object.keys(item["genres"]).length > 0) {
+      let genres = item["genres"];
+      console.log(genres);
       //todo
       i++;
     }
-
   });
 }
 
-async function createChart(){
-
-}
-async function showChart(){
-
-}
+async function createChart() {}
+async function showChart() {}
 
 function logout() {
   localStorage.removeItem("access_token");
@@ -247,9 +227,12 @@ window.onload = function () {
     getTracks(range);
   }
 
-  if (path.startsWith("/genre")){
-      analysis();
-      createChart();
-      showChart();
+  if (path.startsWith("/genre")) {
+    const params = new URLSearchParams(window.location.search);
+    range = params.get("time_range") || "medium_term";
+    getToken();
+    analysis();
+    createChart();
+    showChart();
   }
 };

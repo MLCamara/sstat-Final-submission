@@ -148,9 +148,9 @@ app.get("/artists/:id", function (req, res) {
 });
 app.get("/genre/:id", function (req, res) {
   const id = req.params.id; // will be "short_term"
-
+  const timeRange = req.query.time_range;
   if (id in database) {
-    res.render("genre", {id}); // optional: pass values to the template
+    res.render("genre", {id, timeRange}); // optional: pass values to the template
   } else {
     res.redirect("/");
   }
