@@ -133,8 +133,23 @@
             <a class="dropdown-item" id="tlasty" href="">Last Year</a>
           </div>
         </li>
-        <li class="nav-item">
-          <a href="#" id="genre-link" class="nav-link">Genre Analysis</a>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            data-bs-toggle="dropdown"
+            href="#"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+            >Genre Analysis</a
+          >
+          <div class="dropdown-menu" style="justify-content: center">
+            <a class="dropdown-item" id="glast4" href="">Last 4 Weeks</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" id="glast6" href="">Last 6 Months</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" id="glasty" href="">Last Year</a>
+          </div>
         </li>
         <li class="nav-item">
           <Button onclick="logout();" class="btn btn-primary">Sign Out</Button>

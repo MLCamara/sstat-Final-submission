@@ -230,6 +230,18 @@ window.onload = function () {
   if (path.startsWith("/genre")) {
     const params = new URLSearchParams(window.location.search);
     range = params.get("time_range") || "medium_term";
+
+    switch (range) {
+      case "short_term":
+        term.textContent = "Last 4 Weeks";
+        break;
+      case "medium_term":
+        term.textContent = "Last 6 Months";
+        break;
+      case "long_term":
+        term.textContent = "Last Year";
+        break;
+    }
     getToken();
     analysis();
     createChart();
