@@ -141,6 +141,7 @@
     "saxes": "^3.1.11",
     "send": "^0.19.0",
     "serve-static": "^1.16.2",
+    "serverless-http": "^3.2.0",
     "setprototypeof": "^1.2.0",
     "side-channel": "^1.1.0",
     "side-channel-list": "^1.0.0",
