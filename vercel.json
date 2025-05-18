@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "builds": [{ "src": "sptfy.js", "use": "@vercel/node" }],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "sptfy.js"
+    }
+  ]
+}
