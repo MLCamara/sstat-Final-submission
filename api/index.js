@@ -6,7 +6,7 @@ import fetch from "node-fetch";
 import path, { dirname } from "path";
 import serverless from "serverless-http";
 import { fileURLToPath } from "url";
-import auth from "../auth.js"; // Make sure this module works with CommonJS
+import auth from "../auth.js";
 dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
