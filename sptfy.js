@@ -4,7 +4,7 @@ import fs from "fs";
 import https from "https";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
-import * as auth from "./api/auth.js";
+import * as auth from "./auth.js";
 
 const app = express();
 dotenv.config();

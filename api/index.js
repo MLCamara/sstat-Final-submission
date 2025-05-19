@@ -61,7 +61,7 @@ async function getId(token) {
 }
 
 app.get("/", (req, res) => {
-  res.send("Hello");
+  res.render("index");
 });
 
 app.get("/login", (req, res) => {
