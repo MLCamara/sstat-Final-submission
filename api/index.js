@@ -128,4 +128,4 @@ app.get("/genre/:id", (req, res) => {
   else res.redirect("/");
 });
 
-module.exports = serverless(app);
+export default serverless(app);
