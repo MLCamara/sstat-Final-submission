@@ -1,3 +1,6 @@
+#Vercel Deopleyment
+
+
 # SStats (Spotify Stats)
 
 Many Spotify users enjoy tracking their listening habits, but Spotify only provides an annual summary through "Spotify Wrapped." There is no official way for users to access their listening stats dynamically over shorter timeframes. Our project aims to solve this by offering users an interactive website where they can check their top tracks, artists, and genres over the past four weeks, six months, and lifetime.
