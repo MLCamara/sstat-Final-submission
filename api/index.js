@@ -1,13 +1,16 @@
 // File: api/index.js
 
-const express = require("express");
-const serverless = require("serverless-http");
-const path = require("path");
-const fetch = require("node-fetch");
-const dotenv = require("dotenv");
+import express from "express";
+import serverless from "serverless-http";
+import path from "path";
+import fetch from "node-fetch";
+import dotenv from "dotenv";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+import auth from "../auth.js"; // Make sure this module works with CommonJS
 dotenv.config();
-
-const auth = require("../auth"); // Make sure this module works with CommonJS
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = express();
 const clientId = process.env.CLIENT_ID;
