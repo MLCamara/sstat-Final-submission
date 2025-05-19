@@ -4,7 +4,7 @@ Many Spotify users enjoy tracking their listening habits, but Spotify only provi
 
 **Target Browsers**
 
-Any browser can successfully utilize our website. In some of our .ejs coding, we implemented ios as well as mobile support so that the functionality is maintained regardless of user device.
+Any browser can successfully utilize our website. However, it is best recommended to use a desktop.
 
 **Tech used:** HTML, CSS, JavaScript, Spotify Web API, Spotify OAuth 2.0
 
