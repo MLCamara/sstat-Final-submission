@@ -13,7 +13,7 @@ const __dirname = dirname(__filename);
 
 const app = express();
 const clientId = process.env.CLIENT_ID;
-const redirectUri = "https://your-vercel-project.vercel.app/callback";
+const redirectUri = "https://sstat-final-submission.vercel.app/callback";
 const scope =
   "user-top-read user-read-recently-played user-read-private user-read-email";
 
