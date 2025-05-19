@@ -14,7 +14,7 @@ Any browser can successfully utilize our website. However, it is best recommende
 Our system solves the information problem by providing users with a clean, interactive dashboard to explore their Spotify listening habits. After logging in through secure Spotify OAuth 2.0 authentication, users can view real-time data on their top tracks, artists, and genres. The front end is built with React.js and styled using React-Bootstrap and SCSS, offering a responsive and user-friendly interface. Data visualizations are powered by Recharts for a dynamic experience, while the back end uses Node.js with Express.js to handle API requests and deliver data. User preferences are temporarily stored on the client side using localStorage.
 
 
-# Developer Manual for `sstats`
+# [Developer Manual](https://github.com/MLCamara/sstat-Final-submission/blob/main/docs/DevManual.md) for `sstats`
 
 Welcome to the developer documentation for `sstats` (Spotify Stats Tracker). This document is intended for future developers who will maintain or build upon this project.
 
