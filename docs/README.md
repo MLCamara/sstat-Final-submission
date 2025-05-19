@@ -45,8 +45,6 @@ Create a .env file in the root directory and fill it with:
 env
 
 CLIENT_ID=your_spotify_client_id
-CLIENT_SECRET=your_spotify_client_secret
-SESSION_SECRET=your_random_secret
 Running the Application
 Development (HTTPS Local Server)
 bash
