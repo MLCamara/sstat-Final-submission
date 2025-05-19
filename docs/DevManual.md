@@ -85,7 +85,7 @@ Genre Chart: Genre analysis/chart functions are stubbed and incomplete
 
 
 ## 6. Roadmap
-Short-Term
+**Short-Term**
 
 Implement genre-based analytics using createChart() and showChart()
 
@@ -96,7 +96,8 @@ Add token refresh logic
 Improve mobile responsiveness
 
 
- Mid-Term
+**Mid-Term**
+
 Add Jest/Mocha test suite
 
 
