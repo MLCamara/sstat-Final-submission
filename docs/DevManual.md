@@ -18,8 +18,11 @@ npm install
 Environment Variables
 Create a .env file (already provided) in the root directory:
 env
+
 CLIENT_ID=your_spotify_client_id
+
 CLIENT_SECRET=your_spotify_client_secret
+
 SESSION_SECRET=any_secure_string
 
 
@@ -45,7 +48,9 @@ After redirect, use /profile/:id, /tracks/:id?time_range=short_term, etc. to ver
 Use browser dev tools or Postman to hit:
 
 /access/:id
+
 /artists/:id?time_range=medium_term
+
 /genre/:id?time_range=long_term
 
 
@@ -53,11 +58,17 @@ Use browser dev tools or Postman to hit:
 ## 4. API Reference
 GET Endpoints
 /login; Begins Spotify OAuth 2.0 login
+
 /callback; OAuth redirect handler (saves tokens)
+
 /access/:id; Returns saved access_token + refresh_token
+
 /profile/:id; Loads profile page for the user
+
 /tracks/:id?time_range=range; Shows top tracks over selected time range
+
 /artists/:id?time_range=range; Shows top artists over selected time range
+
 /genre/:id?time_range=range; Analyzes top genres (future implementation)
 
 
