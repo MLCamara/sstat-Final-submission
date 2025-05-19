@@ -165,7 +165,12 @@
     <main>
       <div
         class="flex-container"
-        style="padding-top: 50px; height: 700px; text-align: center"
+        style="
+          padding-top: 50px;
+          height: 700px;
+          text-align: center;
+          align-items: center;
+        "
       >
         <div
           class="flex-container"
@@ -177,12 +182,10 @@
           <h1>Top Genres</h1>
           <h2 id="term"></h2>
         </div>
-      </div>
-      <div
-        class="flex-container"
-        style="margin-top: 50px; height: 700px; text-align: center"
-      >
-        Testing
+        <canvas
+          id="genreChart"
+          style="width: 100%; display: block; margin: 0 auto"
+        ></canvas>
       </div>
     </main>
     <style>

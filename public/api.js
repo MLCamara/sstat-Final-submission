@@ -154,22 +154,58 @@ async function getArtists() {
 }
 
 async function analysis() {
-  let i = 0;
   let data = await fetchArtists();
   let genre = {};
-  items = data["items"];
-  items.forEach(async (item) => {
-    if (Object.keys(item["genres"]).length > 0) {
-      let genres = item["genres"];
-      console.log(genres);
-      //todo
-      i++;
+  const items = data["items"];
+
+  items.forEach((item) => {
+    if (item["genres"] && item["genres"].length > 0) {
+      item["genres"].forEach((g) => {
+        genre[g] = (genre[g] || 0) + 1;
+      });
     }
   });
+
+  return genre;
 }
 
-async function createChart() {}
-async function showChart() {}
+async function createChart() {
+  const genreCounts = await analysis();
+  const sortedGenres = Object.entries(genreCounts).sort((a, b) => b[1] - a[1]);
+  // Separate back into labels and data
+  const labels = sortedGenres.map(([genre]) => genre);
+  const data = sortedGenres.map(([, count]) => count);
+
+  const ctx = document.getElementById("genreChart").getContext("2d");
+
+  new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: "Your Popular Genres",
+          data: data,
+          borderWidth: 4,
+          backgroundColor: "#1DB954",
+        },
+      ],
+    },
+    options: {
+      indexAxis: "x", // Makes it horizontal
+      scales: {
+        x: {
+          beginAtZero: true,
+          ticks: {
+            font: {
+              size: 20, // 👈 X-axis numbers
+            },
+          },
+        },
+      },
+    },
+  });
+}
 
 function logout() {
   localStorage.removeItem("access_token");
@@ -243,8 +279,6 @@ window.onload = function () {
         break;
     }
     getToken();
-    analysis();
     createChart();
-    showChart();
   }
 };
