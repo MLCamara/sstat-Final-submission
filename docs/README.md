@@ -43,16 +43,12 @@ Environment Variables
 Create a .env file in the root directory and fill it with:
 
 env
-Copy
-Edit
+
 CLIENT_ID=your_spotify_client_id
-CLIENT_SECRET=your_spotify_client_secret
-SESSION_SECRET=your_random_secret
 Running the Application
 Development (HTTPS Local Server)
 bash
-Copy
-Edit
+
 node sptfy.js
 This starts an HTTPS server at:
 https://127.0.0.1:3000
@@ -63,8 +59,7 @@ Production Deployment (Recommended)
 Use PM2 to run the server persistently:
 
 bash
-Copy
-Edit
+
 npm install -g pm2
 pm2 start sptfy.js --name sstats
 pm2 save
