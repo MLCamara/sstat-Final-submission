@@ -4,7 +4,7 @@ import fs from "fs";
 import https from "https";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
-import * as auth from "./auth.js";
+import * as auth from "./api/auth.js";
 
 const app = express();
 dotenv.config();
@@ -150,7 +150,7 @@ app.get("/genre/:id", function (req, res) {
   const id = req.params.id; // will be "short_term"
   const timeRange = req.query.time_range;
   if (id in database) {
-    res.render("genre", {id, timeRange}); // optional: pass values to the template
+    res.render("genre", { id, timeRange }); // optional: pass values to the template
   } else {
     res.redirect("/");
   }
