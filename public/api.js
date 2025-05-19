@@ -1,9 +1,12 @@
 let token;
 let range;
+
+// Retrieve the access token from localStorage
 function getToken() {
   token = window.localStorage.getItem("access_token");
 }
 
+// Fetch user profile info from Spotify and update DOM
 async function getUserInfo() {
   let data = await fetchUserData();
   if (data) {
@@ -24,6 +27,7 @@ async function getUserInfo() {
   }
 }
 
+// Make API call to fetch user profile data
 async function fetchUserData() {
   let response = await fetch("https://api.spotify.com/v1/me", {
     headers: {
@@ -40,6 +44,7 @@ async function fetchUserData() {
   }
 }
 
+// Fetch recently played tracks from Spotify
 async function fetchRecent() {
   let response = await fetch(
     "https://api.spotify.com/v1/me/player/recently-played?limit=10",
@@ -59,6 +64,7 @@ async function fetchRecent() {
   }
 }
 
+// Display recently played tracks on the page
 async function getRecent() {
   let items = await fetchRecent();
   let i = 1;
@@ -78,6 +84,7 @@ async function getRecent() {
   });
 }
 
+// Fetch top tracks based on selected time range
 async function fetchTracks() {
   let response = await fetch(
     `https://api.spotify.com/v1/me/top/tracks?time_range=${range}&limit=30`,
@@ -97,6 +104,7 @@ async function fetchTracks() {
   }
 }
 
+// Display top tracks on the page
 async function getTracks() {
   let i = 1;
   data = await fetchTracks();
@@ -118,6 +126,7 @@ async function getTracks() {
   });
 }
 
+// Fetch top artists based on selected time range
 async function fetchArtists() {
   let response = await fetch(
     `https://api.spotify.com/v1/me/top/artists?time_range=${range}&limit=30`,
@@ -137,6 +146,7 @@ async function fetchArtists() {
   }
 }
 
+// Display top artists and their popularity on the page
 async function getArtists() {
   let i = 1;
   let data = await fetchArtists();
@@ -153,6 +163,7 @@ async function getArtists() {
   });
 }
 
+// Analyze genres from top artists and count occurrences
 async function analysis() {
   let data = await fetchArtists();
   let genre = {};
@@ -169,10 +180,12 @@ async function analysis() {
   return genre;
 }
 
+// Create a bar chart using Chart.js to show top genres
 async function createChart() {
   const genreCounts = await analysis();
   const sortedGenres = Object.entries(genreCounts).sort((a, b) => b[1] - a[1]);
-  // Separate back into labels and data
+
+  // Extract labels and data from sorted genre counts
   const labels = sortedGenres.map(([genre]) => genre);
   const data = sortedGenres.map(([, count]) => count);
 
@@ -187,18 +200,18 @@ async function createChart() {
           label: "Your Popular Genres",
           data: data,
           borderWidth: 4,
-          backgroundColor: "#1DB954",
+          backgroundColor: "#1DB954", // Spotify green
         },
       ],
     },
     options: {
-      indexAxis: "x", // Makes it horizontal
+      indexAxis: "x",
       scales: {
         x: {
           beginAtZero: true,
           ticks: {
             font: {
-              size: 20, // 👈 X-axis numbers
+              size: 20,
             },
           },
         },
@@ -207,6 +220,7 @@ async function createChart() {
   });
 }
 
+// Logout function to clear tokens and redirect to homepage
 function logout() {
   localStorage.removeItem("access_token");
   localStorage.removeItem("refresh_token");
@@ -214,6 +228,7 @@ function logout() {
   window.location.href = "/";
 }
 
+// Automatically run functions based on current page path
 window.onload = function () {
   const path = window.location.pathname;
 
@@ -225,7 +240,7 @@ window.onload = function () {
 
   if (path.startsWith("/artists")) {
     const params = new URLSearchParams(window.location.search);
-    range = params.get("time_range") || "medium_term"; // default to medium_term if not provided
+    range = params.get("time_range") || "medium_term";
 
     switch (range) {
       case "short_term":
@@ -245,7 +260,7 @@ window.onload = function () {
 
   if (path.startsWith("/tracks")) {
     const params = new URLSearchParams(window.location.search);
-    range = params.get("time_range") || "medium_term"; // default to medium_term if not provided
+    range = params.get("time_range") || "medium_term";
 
     switch (range) {
       case "short_term":

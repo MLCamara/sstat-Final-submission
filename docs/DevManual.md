@@ -21,15 +21,12 @@ env
 
 CLIENT_ID=your_spotify_client_id
 
-CLIENT_SECRET=your_spotify_client_secret
-
-SESSION_SECRET=any_secure_string
 
 
 ## 2. Running the App
 Local HTTPS Server
 bash
-CopyEdit
+
 node sptfy.js
 
 Runs the app on:
