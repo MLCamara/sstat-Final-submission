@@ -1,9 +1,9 @@
 const url = window.location.href;
-const id = url.split("/")[4];
+const id = window.location.pathname.split("/").pop();
 async function sync() {
   try {
     // Fetch data from /access/:id
-    let response = await fetch(`https://127.0.0.1:3000/access/${id}`);
+    let response = await fetch(`https://vercel-deploy-eight-silk.vercel.app/access/${id}`);
     if (!response.ok) {
       throw new Error("Failed to retrieve data");
     }
